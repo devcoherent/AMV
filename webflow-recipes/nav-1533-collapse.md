@@ -1,30 +1,37 @@
 # Recipe: "Nav 1533 Collapse"
 
-**What it does:** makes the AMV navbar (`nav_component`, component `Navbar_component`) switch to its tablet / hamburger layout below **1533px** instead of Webflow's built-in 991px.
+**What it does:** makes the AMV navbar (`nav_component`, component `Navbar_component`) switch to its tablet / hamburger layout below a custom width instead of Webflow's built-in 991px. The width is set in the `@media` line of the code.
 
-**Status:** tried on 2026-10-30, then removed at the client's request. Kept here so it can be re-applied later by name ("Nav 1533 Collapse").
+**Status:**
+- 2026-10-30: first tried at 1533px, then removed at the client's request.
+- 2026-11-01: re-applied at **1280px** (collapses at 1279px and below), live in `Navbar_component` as the embed `Nav CSS – collapse below 1280px`.
+
+The name stays "Nav 1533 Collapse" so it can be asked for by name.
 
 ## Why custom code is needed
 
-Webflow's Navbar can only collapse at fixed points (tablet 991px, mobile landscape, mobile portrait, or none). A custom width such as 1533px is not possible in the Designer, so the 992–1532px range is handled with CSS.
+Webflow's Navbar can only collapse at fixed points (tablet 991px, mobile landscape, mobile portrait, or none). A custom width such as 1280px or 1533px is not possible in the Designer, so the range from 992px up to the custom width is handled with CSS.
 
 Webflow decides whether the navbar is collapsed by checking if the menu button is displayed. Showing `.w-nav-button` and hiding `.w-nav-menu` in this range makes Webflow's own navbar script treat it as collapsed. Open/close, dropdowns and the hamburger (IX2) animation keep running through Webflow itself; no element or interaction is changed.
 
 ## How to apply
 
 1. Inside the `Navbar_component` component, append an **Embed** element as the last child of the root `nav_component` (NavbarWrapper).
-2. Name it in the Navigator: `Nav CSS – collapse below 1533px`.
+2. Name it in the Navigator, e.g. `Nav CSS – collapse below 1280px`.
 3. Paste the code below.
-4. Test on the published or staging site at widths 1000–1532px (the Designer canvas does not always render custom code).
+4. Test on the published or staging site at widths between 992px and the custom width (the Designer canvas does not always render custom code).
 
 ## Code
 
-The 992–1532px rules copy the navbar's existing tablet (medium) styles, as they were on 2026-10-30. If the tablet styles change later, update these rules to match.
+To use a different width, change `max-width` in the `@media` line (e.g. `1532px` for the original 1533px version).
+
+
+The rules copy the navbar's existing tablet (medium) styles, as they were on 2026-10-30. If the tablet styles change later, update these rules to match.
 
 ```html
 <style>
-/* Navbar: use the tablet (collapsed) layout below 1533px. Webflow only offers fixed collapse points, so 992-1532px is handled here. */
-@media screen and (min-width: 992px) and (max-width: 1532px) {
+/* Navbar: use the tablet (collapsed) layout below 1280px. Webflow only offers fixed collapse points, so 992-1279px is handled here. */
+@media screen and (min-width: 992px) and (max-width: 1279px) {
   .nav_component .w-nav-menu { display: none; }
   .nav_component .w-nav-button { display: block; }
   .nav_component .w-dropdown { display: block; }
@@ -52,9 +59,9 @@ The 992–1532px rules copy the navbar's existing tablet (medium) styles, as the
 
 ## Known issues to fix before using again
 
-- The client did not like the result when it was first applied. Find out what looked wrong before re-applying.
+- The client did not like the first (1533px) attempt; the reason was not given.
 - `nav_dropdown-list` keeps the desktop `transform: translate(-50%)`, which tablet does not reset. The open dropdown may sit about 7.5rem to the left in both tablet and this range. Consider adding `transform: none;` to the tablet style and to this CSS.
 
 ## How to remove
 
-Delete the `Nav CSS – collapse below 1533px` embed from `Navbar_component`. Nothing else was changed.
+Delete the `Nav CSS – collapse below …px` embed from `Navbar_component`. Nothing else was changed.
