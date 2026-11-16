@@ -18,6 +18,10 @@ Mobile Units Template page > Page settings > Custom code > Head
 
 ```html
 <style>
+/* Tab-open animation for the Spec Sheets and Floor Plans tabs.
+   Same motion as the site's slide-in-bottom interactions (100px up + fade, 1s, outQuart).
+   Plays every time a tab pane becomes active. Scroll interactions cannot do this
+   because these panes are hidden on page load. */
 @media (prefers-reduced-motion: no-preference) {
   @keyframes amv-tab-slide-in {
     from { opacity: 0; transform: translate3d(0, 100px, 0); }
@@ -25,7 +29,7 @@ Mobile Units Template page > Page settings > Custom code > Head
   }
   .w-tab-pane.w--tab-active .spec-sheet_title,
   .w-tab-pane.w--tab-active .spec-sheet_component > .text-size-regular,
-  .w-tab-pane.w--tab-active .spec-sheet_column,
+  .w-tab-pane.w--tab-active .spec-sheet_group,
   .w-tab-pane.w--tab-active .spec-sheet_download,
   .w-tab-pane.w--tab-active .floor-plan_header,
   .w-tab-pane.w--tab-active .floor-plan_card,
@@ -34,12 +38,21 @@ Mobile Units Template page > Page settings > Custom code > Head
   }
   .w-tab-pane.w--tab-active .spec-sheet_component > .text-size-regular,
   .w-tab-pane.w--tab-active .floor-plan_card:nth-child(1) { animation-delay: 300ms; }
-  .w-tab-pane.w--tab-active .spec-sheet_column:nth-child(1),
   .w-tab-pane.w--tab-active .floor-plan_card:nth-child(2) { animation-delay: 400ms; }
-  .w-tab-pane.w--tab-active .spec-sheet_column:nth-child(2),
   .w-tab-pane.w--tab-active .floor-plan_card:nth-child(3) { animation-delay: 500ms; }
-  .w-tab-pane.w--tab-active .spec-sheet_download,
   .w-tab-pane.w--tab-active .floor-plan_component > .margin-top-small { animation-delay: 600ms; }
+  /* Spec sheet groups animate one by one, row by row; the right column trails by 50ms. */
+  .w-tab-pane.w--tab-active .spec-sheet_group:nth-child(1) { animation-delay: 400ms; }
+  .w-tab-pane.w--tab-active .spec-sheet_group:nth-child(2) { animation-delay: 500ms; }
+  .w-tab-pane.w--tab-active .spec-sheet_group:nth-child(3) { animation-delay: 600ms; }
+  .w-tab-pane.w--tab-active .spec-sheet_group:nth-child(4) { animation-delay: 700ms; }
+  .w-tab-pane.w--tab-active .spec-sheet_group:nth-child(n+5) { animation-delay: 800ms; }
+  .w-tab-pane.w--tab-active .spec-sheet_column:nth-child(2) .spec-sheet_group:nth-child(1) { animation-delay: 450ms; }
+  .w-tab-pane.w--tab-active .spec-sheet_column:nth-child(2) .spec-sheet_group:nth-child(2) { animation-delay: 550ms; }
+  .w-tab-pane.w--tab-active .spec-sheet_column:nth-child(2) .spec-sheet_group:nth-child(3) { animation-delay: 650ms; }
+  .w-tab-pane.w--tab-active .spec-sheet_column:nth-child(2) .spec-sheet_group:nth-child(4) { animation-delay: 750ms; }
+  .w-tab-pane.w--tab-active .spec-sheet_column:nth-child(2) .spec-sheet_group:nth-child(n+5) { animation-delay: 850ms; }
+  .w-tab-pane.w--tab-active .spec-sheet_download { animation-delay: 900ms; }
 }
 </style>
 ```
