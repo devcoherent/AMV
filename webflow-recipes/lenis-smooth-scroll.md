@@ -31,7 +31,7 @@ Site settings > Custom code.
   var nav = document.querySelector('.nav_component');
   var lenis = new Lenis({
     autoRaf: true,          // Lenis runs its own animation loop
-    lerp: 0.1,              // smoothness: lower = smoother/slower (0.07-0.12 is a good range)
+    lerp: 0.07,             // smoothness: lower = smoother/slower (0.05-0.12 is a good range)
     wheelMultiplier: 1,     // scroll speed per wheel step
     anchors: { offset: nav ? -nav.offsetHeight : 0 } // smooth #anchor links, stop below the sticky navbar
   });
@@ -60,7 +60,7 @@ Site settings > Custom code.
 
 ## Tuning
 
-- `lerp`: lower is smoother and slower to settle (try 0.07 to 0.12).
+- `lerp`: lower is smoother and slower to settle (currently 0.07; try 0.05 to 0.12).
 - `wheelMultiplier`: scroll distance per wheel step.
 - Any new element that scrolls on its own (modal, scrollable list) needs the attribute `data-lenis-prevent`.
 - A new overlay that should lock page scroll needs a `watch(...)` line like the two at the end of the script.
