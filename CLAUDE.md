@@ -11,6 +11,10 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - **Do not delete existing variables or classes without asking.**
 - **Images sent in chat:** when the client sends an image without other instructions, reply with the text content of the image only. Do not change Webflow.
 
+## Reusable components
+
+- **Spec table** (label / value table, used on many pages): global classes `spec-table_component` > `spec-table_row` > `spec-table_label` + `spec-table_value`. Rows alternate tinted (Background/brand-subtle) and white, with a border between label and value. Always reuse these classes for any new spec / data table; never make page-specific copies. Shown in the Style Guide "Spec Table" section. Add margin with a utility class on a wrapper, not on the component.
+
 ## Saved recipes
 
 - `webflow-recipes/nav-1533-collapse.md` — "Nav 1533 Collapse": custom CSS to collapse the navbar to its tablet layout below a custom width (currently applied at 1280px).
