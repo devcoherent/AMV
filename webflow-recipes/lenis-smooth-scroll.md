@@ -2,7 +2,7 @@
 
 Smooth wheel scrolling for the whole site with Lenis 1.3.27, set up so the existing animations keep working.
 
-**Status:** code written and tested against the staging pages on 2026-11-16 by injecting it in a test browser. Not yet added to the Webflow site.
+**Status:** applied site-wide on 2026-11-16 (head + footer custom code) and tested on the published staging site.
 
 ## Why it is safe with the site's animations
 
