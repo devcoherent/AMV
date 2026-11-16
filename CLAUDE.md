@@ -19,3 +19,4 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 ## Saved recipes
 
 - `webflow-recipes/nav-1533-collapse.md` — "Nav 1533 Collapse": custom CSS to collapse the navbar to its tablet layout below a custom width (currently applied at 1280px).
+- `webflow-recipes/tab-open-slide-in.md` — "Tab Open Slide-In": custom CSS that replays the slide-in-bottom motion when a hidden tab pane is opened (applied on the Mobile Units Template page head code). Also explains how the site's `slide-in-*` scroll animations work.
