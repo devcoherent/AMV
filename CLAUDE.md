@@ -42,6 +42,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 | Systems Design & Integration (static) | `6afcbd89e5e28fd37f0c6d0f` | `/systems-design-integration` | |
 | Managed Studio Services (static) | `6afcbe7f2174b0705e4e56f0` | `/managed-studio-services` | |
 | Equipment Sales (static) | `6afcc02c08be3d8ec05172db` | `/sales` | Featured Equipment `6afcc02fb8c4a4eb58b662a0` (collection list) |
+| Custom Engineering & Fabrication (static) | `6afcc2f65d702d810b221380` | `/custom-engineering-fabrication` | |
 | Manufacturers Template (auto-created, unused) | `6afcbbe136b71b9eb773560e` | `/manufacturer/<slug>` | Manufacturers |
 | Style Guide (draft) | `6ae0d69035ac2bac3961b4d1` | `/style-guide` | |
 
@@ -80,6 +81,10 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Image + text cards: `photo-strip_list` (5 columns) or `home-services_grid` (4 columns) with `stage-detail_spec-card` > `team_item` > `photo-strip_image`.
 - Contact band: `tag-bar_component` with `process_item text-align-center` blocks (`button` + `text-style-link text-size-large`).
 - Use Paragraph (not TextBlock) for short labels built by the API, so `set_text` works in nested builds.
+
+### Custom Engineering & Fabrication page pattern
+
+- Light hero (H1 wraps to 3 lines at `is-wide` 32rem), then `section_custom` > ... > `custom_component` bands: tinted capabilities band (`grid-autofit-small` of `stage-detail_spec-card` > `team_item` with `photo-strip_image`, h3 `heading-style-h4 text-color-blue`), dark banner (`padding-section-small background-color-primary`, `heading-style-h3 text-color-alternate`), contact (`mobile-contacts_list` of `team_item` blocks with a `footer_divider background-color-primary`).
 
 ### Equipment Sales page pattern
 
