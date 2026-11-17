@@ -16,6 +16,48 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 
 - **Spec table** (label / value table, used on many pages): global classes `spec-table_component` > `spec-table_row` > `spec-table_label` + `spec-table_value`. Rows alternate tinted (Background/brand-subtle) and white, with a border between label and value. Text comes from Style Guide classes on the cells: label = `spec-table_label text-size-regular text-weight-semibold`, value = `spec-table_value text-size-regular`. Always reuse these classes for any new spec / data table; never make page-specific copies. Shown in the Style Guide "Spec Table" section. Add margin with a utility class on a wrapper, not on the component.
 
+## Working rules learned from the client
+
+- Talk to the client in Bangla (Banglish is fine). Keep replies short and say plainly what was done and what is left.
+- Only touch the page the client is working on. If they say a page is finished (e.g. "Mobile Units template a kono touch korba na"), never change it, even for shared fixes: make a page-specific copy of the fix instead.
+- Do not change the styles of existing classes. Add a new class (layout, spacing, border, background only) or reuse an existing one. Before creating a class, check whether another page already has a class doing the same job and reuse it; never make two classes for the same job.
+- No CSS in custom code. All styling lives in Webflow classes; embeds may hold JavaScript only.
+- Every element gets a Client-First class name (no unnamed divs).
+- Use the existing site components: Spacer (variant prop), Hero_accent-line, buttons (`button is-flex`, `button is-secondary`), CTA, Navbar, Footer.
+- Give every new CMS field a help text that says where it shows on the page, and put it in the matching field group (listing page group first, then one group per template section / tab).
+- After every change: publish, then verify on the live site (allmobilevideo.webflow.io) with Playwright and screenshots before reporting.
+
+## Site map (pages and CMS)
+
+| Page | Page id | Live path | CMS collection |
+|---|---|---|---|
+| Home | `6ae0d69035ac2bac3961b4cc` | `/` | |
+| Mobile (listing, Finsweet filters, card tooltip) | `6ae4fc18d35f0b5fa5af6cac` | `/mobile` | |
+| Mobile Units Template (finished, do not touch) | `6ae50a6ca43174bb93995e25` | `/mobile/<slug>` | Mobile Units `6ae50a6ca43174bb93995e1f` |
+| Production Spaces (studios listing) | `6af377896c7676999e8ec1dd` | `/stage` | |
+| Studios Template | `6af379570dad849b03220882` | `/stage/<slug>` | Studios `6af379560dad849b0322087c` |
+| Equipment Rentals | `6af3729fc0f4d4b03ff06a7b` | `/rental` | |
+| Style Guide (draft) | `6ae0d69035ac2bac3961b4d1` | `/style-guide` | |
+
+### Detail template pattern (Mobile Units and Studios)
+
+- Hero: `section_stage-hero` > `stage-hero_content` (text box) + `stage-hero_fade` (white gradient into the photo) + `background-image-wrapper hero-right`. Breadcrumb: `breadcrumb_component text-size-regular` > `breadcrumb_list` > `breadcrumb_link text-style-link` / `breadcrumb_divider` / `breadcrumb_current`.
+- Tabs: default Webflow Tabs. `stage-detail_tabs` > `stage-detail_tabs-menu is-sticky` (sticky under the navbar) with `stage-detail_tab-link` (label div `text-size-regular text-weight-bold`) and `stage-detail_tabs-content` > `stage-detail_tab-pane`. Active tab colour is the class's Current state in the Designer.
+- Tab section header: Hero_accent-line, Spacer, `heading-style-h2`, Spacer, `text-size-regular text-color-blue` line, then content in a `margin-top-medium` wrapper.
+- Studios tabs: Overview (`stage-detail_overview-grid` 3 columns: highlights `mobile-detail_overview-content`, floor plan `stage-detail_floor-plan`, Quick Specs `mobile-detail_specs-content` with the spec table), Tech Specs (`spec-sheet_component` > `stage-detail_specs-grid` of `stage-detail_spec-card`), Gallery (`gallery_component` > `gallery_list-wrapper` > `gallery_list` > `gallery_item` > `gallery_image`; bento grid, first photo 2x2).
+- Gallery lightbox: the "Unit Lightbox" component (`unit-lightbox_*` classes, `data-unit-lightbox` attributes) plus a script-only HtmlEmbed at the top of the detail section.
+- Floor plans (Mobile Units): `floor-plan_*` classes. Spec sheet tab: `spec-sheet_*` classes.
+
+## Webflow MCP API limits (work-arounds)
+
+- A Collection List source cannot be set to a multi-image / multi-reference field: ask the client to set the source in the Designer, then add and bind the child elements.
+- Elements with CMS bindings fail inside nested builder calls: create them first, then bind with `set_settings`.
+- The builder cannot create a tab link or pane: build a temporary Tabs element, move its 3rd link and pane into the real tabs, then delete the temporary Tabs.
+- Conditional visibility, Lightbox element media and the "Current" state cannot be set by API: ask the client to do these in the Designer.
+- Multi-class `set_style` needs the combo to exist: create an empty combo first.
+- Webflow cannot keep a variable inside a gradient value, so gradients are hard-coded.
+- Publishing is limited to once per minute.
+
 ## Saved recipes
 
 - `webflow-recipes/nav-1533-collapse.md` — "Nav 1533 Collapse": custom CSS to collapse the navbar to its tablet layout below a custom width (currently applied at 1280px).
