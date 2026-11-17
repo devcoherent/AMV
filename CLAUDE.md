@@ -38,6 +38,8 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 | Studios Template | `6af379570dad849b03220882` | `/stage/<slug>` | Studios `6af379560dad849b0322087c` |
 | Equipment Rentals | `6af3729fc0f4d4b03ff06a7b` | `/rental` | |
 | Transmission Delivery (static, duplicated from Production Spaces) | `6afc7ebfd4ebac5a3c7845c4` | `/transmission-delivery` | |
+| Authorized Distributor (static, duplicated from Transmission Delivery) | `6afcbbd32629c9ec552c7162` | `/authorized-distributor` | Manufacturers `6afcbbe136b71b9eb7735608` (collection list) |
+| Manufacturers Template (auto-created, unused) | `6afcbbe136b71b9eb773560e` | `/manufacturer/<slug>` | Manufacturers |
 | Style Guide (draft) | `6ae0d69035ac2bac3961b4d1` | `/style-guide` | |
 
 ### Detail template pattern (Mobile Units and Studios)
@@ -59,6 +61,14 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Team box: `stage-detail_spec-card` > `team_grid` > `team_item` / `team_divider`.
 - 3-column table: spec table with the row combo `spec-table_row is-3-col`; the last cell of a header row is `spec-table_value text-size-regular text-weight-semibold`.
 
+### Authorized Distributor page pattern
+
+- Hero: same light hero as Transmission Delivery, with the breadcrumb on top.
+- Section `section_distributor` > `distributor_component`.
+- Logo grid (Manufacturers collection: Name, Logo, Website): `manufacturer_list-wrapper` > `manufacturer_list` (5 / 3 / 2 columns) > `manufacturer_item` > link `manufacturer_card` (bound to Website, new tab) > `manufacturer_logo` (Logo) + h3 `heading-style-h4 text-color-heading` (Name, fallback while a logo is missing) + `manufacturer_arrow text-color-blue` with an `icon-1x1-small` svg.
+- Button: `margin-top-medium text-align-center` wrapper > `button is-secondary`.
+- Help bar: reuses `tag-bar_component` with `icon-1x1-large text-color-blue` svgs, `footer_divider background-color-primary` and `team_item` text blocks.
+
 ## Webflow MCP API limits (work-arounds)
 
 - A Collection List source cannot be set to a multi-image / multi-reference field: ask the client to set the source in the Designer, then add and bind the child elements.
@@ -69,6 +79,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Webflow cannot keep a variable inside a gradient value, so gradients are hard-coded.
 - Publishing is limited to once per minute.
 - `set_text` inside a nested builder call is ignored for TextBlock (Heading, Paragraph and TextLink are fine), and `set_text` on the TextBlock fails afterwards: set the text on its String child (same element id with the last hex digit + 1).
+- Collection List: set the source with `set_settings` key `source`, `static_json` `{"collectionId":"..."}`; bind an image with key `assetId`. Setting `sort` fails with a conflict error: ask the client to set the sort in the Designer.
 - An element cannot be moved or inserted `after` a component instance: anchor `before` the next normal element instead.
 
 ## Saved recipes
