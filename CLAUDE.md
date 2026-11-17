@@ -37,6 +37,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 | Production Spaces (studios listing) | `6af377896c7676999e8ec1dd` | `/stage` | |
 | Studios Template | `6af379570dad849b03220882` | `/stage/<slug>` | Studios `6af379560dad849b0322087c` |
 | Equipment Rentals | `6af3729fc0f4d4b03ff06a7b` | `/rental` | |
+| Transmission Delivery (static, duplicated from Production Spaces) | `6afc7ebfd4ebac5a3c7845c4` | `/transmission-delivery` | |
 | Style Guide (draft) | `6ae0d69035ac2bac3961b4d1` | `/style-guide` | |
 
 ### Detail template pattern (Mobile Units and Studios)
@@ -48,6 +49,16 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Gallery lightbox: the "Unit Lightbox" component (`unit-lightbox_*` classes, `data-unit-lightbox` attributes) plus a script-only HtmlEmbed at the top of the detail section.
 - Floor plans (Mobile Units): `floor-plan_*` classes. Spec sheet tab: `spec-sheet_*` classes.
 
+### Transmission Delivery page pattern
+
+- Hero: light version of the stage hero: `section_stage-hero` > `stage-hero_content is-wide` (32rem) > `padding-section-small background-color-alternate`, plus `stage-hero_fade`.
+- One section `section_transmission` > `transmission_component`. Section headings: Hero_accent-line, Spacer 16px, h2 with `heading-style-h3 text-color-blue` (text typed in capitals).
+- Feature cards (image left, text right): `feature-card_list` (2 columns) > `feature-card_component` > `feature-card_image-wrapper` > `feature-card_image` + `feature-card_content` (h3 `heading-style-h4 text-color-blue`, p `text-size-regular`).
+- Tag bar: `tag-bar_component` with `text-size-regular text-weight-bold text-color-blue` labels and `footer_divider background-color-primary` dividers.
+- Photo row: `photo-strip_list` (5 columns) > `photo-strip_image`.
+- Team box: `stage-detail_spec-card` > `team_grid` > `team_item` / `team_divider`.
+- 3-column table: spec table with the row combo `spec-table_row is-3-col`; the last cell of a header row is `spec-table_value text-size-regular text-weight-semibold`.
+
 ## Webflow MCP API limits (work-arounds)
 
 - A Collection List source cannot be set to a multi-image / multi-reference field: ask the client to set the source in the Designer, then add and bind the child elements.
@@ -57,6 +68,8 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Multi-class `set_style` needs the combo to exist: create an empty combo first.
 - Webflow cannot keep a variable inside a gradient value, so gradients are hard-coded.
 - Publishing is limited to once per minute.
+- `set_text` inside a nested builder call is ignored for TextBlock (Heading, Paragraph and TextLink are fine), and `set_text` on the TextBlock fails afterwards: set the text on its String child (same element id with the last hex digit + 1).
+- An element cannot be moved or inserted `after` a component instance: anchor `before` the next normal element instead.
 
 ## Saved recipes
 
