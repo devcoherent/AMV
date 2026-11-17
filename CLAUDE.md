@@ -99,6 +99,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Publishing is limited to once per minute.
 - `set_text` inside a nested builder call is ignored for TextBlock (Heading, Paragraph and TextLink are fine), and `set_text` on the TextBlock fails afterwards: set the text on its String child (same element id with the last hex digit + 1).
 - Collection List: set the source with `set_settings` key `source`, `static_json` `{"collectionId":"..."}`; bind an image with key `assetId`. Setting `sort` fails with a conflict error: ask the client to set the sort in the Designer.
+- `set_link` with a page link inside a nested builder call is not applied (the link stays `#`); url, email and phone links are fine. Set page links afterwards with `set_link`.
 - An element cannot be moved or inserted `after` a component instance: anchor `before` the next normal element instead.
 
 ## Saved recipes
