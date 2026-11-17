@@ -19,6 +19,6 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 ## Saved recipes
 
 - `webflow-recipes/nav-1533-collapse.md` — "Nav 1533 Collapse": custom CSS to collapse the navbar to its tablet layout below a custom width (currently applied at 1280px).
-- `webflow-recipes/tab-open-slide-in.md` — "Tab Open Slide-In": custom CSS that replays the slide-in-bottom motion when a hidden tab pane is opened (applied on the Mobile Units Template page head code). Also explains how the site's `slide-in-*` scroll animations work.
+- `webflow-recipes/tab-open-slide-in.md` — "Tab Open Slide-In": custom CSS that replays the slide-in-bottom motion when a hidden tab pane is opened (applied in the head code of the Mobile Units Template and Studios Template pages). Also explains how the site's `slide-in-*` scroll animations work.
 - `webflow-recipes/nav-smooth-load.md` — "Nav Smooth Load": site-wide head CSS that replaces the navbar's abrupt legacy load slide with a smoother eased slide + fade.
 - `webflow-recipes/lenis-smooth-scroll.md` — "Lenis Smooth Scroll": site-wide Lenis smooth scrolling code, written to stay compatible with the slide-in animations, sticky elements, mobile menu and gallery lightbox. Applied site-wide in the site head + footer custom code.
