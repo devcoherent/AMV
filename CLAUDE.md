@@ -41,6 +41,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 | Authorized Distributor (static, duplicated from Transmission Delivery) | `6afcbbd32629c9ec552c7162` | `/authorized-distributor` | Manufacturers `6afcbbe136b71b9eb7735608` (collection list) |
 | Systems Design & Integration (static) | `6afcbd89e5e28fd37f0c6d0f` | `/systems-design-integration` | |
 | Managed Studio Services (static) | `6afcbe7f2174b0705e4e56f0` | `/managed-studio-services` | |
+| Equipment Sales (static) | `6afcc02c08be3d8ec05172db` | `/sales` | Featured Equipment `6afcc02fb8c4a4eb58b662a0` (collection list) |
 | Manufacturers Template (auto-created, unused) | `6afcbbe136b71b9eb773560e` | `/manufacturer/<slug>` | Manufacturers |
 | Style Guide (draft) | `6ae0d69035ac2bac3961b4d1` | `/style-guide` | |
 
@@ -79,6 +80,13 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Image + text cards: `photo-strip_list` (5 columns) or `home-services_grid` (4 columns) with `stage-detail_spec-card` > `team_item` > `photo-strip_image`.
 - Contact band: `tag-bar_component` with `process_item text-align-center` blocks (`button` + `text-style-link text-size-large`).
 - Use Paragraph (not TextBlock) for short labels built by the API, so `set_text` works in nested builds.
+
+### Equipment Sales page pattern
+
+- Light hero, then `section_sales` > ... > `sales_component` bands.
+- Intro cards: `grid-autofit-small` > `stage-detail_spec-card` > `team_item` (`photo-strip_image`, h2 `heading-style-h3 text-color-blue`, p `text-size-regular`, `text-style-link`).
+- Featured Equipment (collection: Name, Brand, Image, Product Link): `product_list-wrapper` > `product_list` (8 / 4 / 2 columns) > `product_item` > `stage-detail_spec-card` > `team_item` (image, h3 `text-size-regular`, p `text-size-small`, `text-style-link` "VIEW PRODUCT").
+- Contact row: `mobile-contacts_list` with `text-style-link text-size-large` links and a `footer_divider background-color-primary`.
 
 ## Webflow MCP API limits (work-arounds)
 
