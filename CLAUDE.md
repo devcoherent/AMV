@@ -39,6 +39,8 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 | Equipment Rentals | `6af3729fc0f4d4b03ff06a7b` | `/rental` | |
 | Transmission Delivery (static, duplicated from Production Spaces) | `6afc7ebfd4ebac5a3c7845c4` | `/transmission-delivery` | |
 | Authorized Distributor (static, duplicated from Transmission Delivery) | `6afcbbd32629c9ec552c7162` | `/authorized-distributor` | Manufacturers `6afcbbe136b71b9eb7735608` (collection list) |
+| Systems Design & Integration (static) | `6afcbd89e5e28fd37f0c6d0f` | `/systems-design-integration` | |
+| Managed Studio Services (static) | `6afcbe7f2174b0705e4e56f0` | `/managed-studio-services` | |
 | Manufacturers Template (auto-created, unused) | `6afcbbe136b71b9eb773560e` | `/manufacturer/<slug>` | Manufacturers |
 | Style Guide (draft) | `6ae0d69035ac2bac3961b4d1` | `/style-guide` | |
 
@@ -68,6 +70,15 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Logo grid (Manufacturers collection: Name, Logo, Website): `manufacturer_list-wrapper` > `manufacturer_list` (5 / 3 / 2 columns) > `manufacturer_item` > link `manufacturer_card` (bound to Website, new tab) > `manufacturer_logo` (Logo) + h3 `heading-style-h4 text-color-heading` (Name, fallback while a logo is missing) + `manufacturer_arrow text-color-blue` with an `icon-1x1-small` svg.
 - Button: `margin-top-medium text-align-center` wrapper > `button is-secondary`.
 - Help bar: reuses `tag-bar_component` with `icon-1x1-large text-color-blue` svgs, `footer_divider background-color-primary` and `team_item` text blocks.
+
+### Systems Design & Integration and Managed Studio Services pattern
+
+- Both use the light hero and one `section_systems` / `section_managed` per band: section > `padding-section-small` (+ `background-color-brand-subtle` or `background-color-primary` for a tinted / dark band) > `padding-global` > `container-large` > `systems_component` / `managed_component`.
+- Title + text columns: `team_grid` rows (3 columns with `team_divider`, rows split by `team_line`) or `process_list` (6 columns) of `team_item` (h3 `heading-style-h4`, p `text-size-regular`).
+- Numbered steps: `process_list` > `process_line` + `process_item text-align-center` > `process_number` (number in `text-size-medium text-color-alternate`), title `text-size-regular text-weight-bold text-color-blue`.
+- Image + text cards: `photo-strip_list` (5 columns) or `home-services_grid` (4 columns) with `stage-detail_spec-card` > `team_item` > `photo-strip_image`.
+- Contact band: `tag-bar_component` with `process_item text-align-center` blocks (`button` + `text-style-link text-size-large`).
+- Use Paragraph (not TextBlock) for short labels built by the API, so `set_text` works in nested builds.
 
 ## Webflow MCP API limits (work-arounds)
 
