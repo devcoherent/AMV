@@ -85,7 +85,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 ### Managed Studio Services clean-up (reusable classes added)
 
 - Divided columns: `divided-list_component` (overflow hidden) > `divided-list_list` (6 / 3 / 2 / 1 columns, margin-left -1.5rem so the first divider of every row is clipped; hard-coded because a variable cannot be negative, keep it equal to Spacing/small) > `divided-list_item` (left border + side padding). Centred label variant: `divided-list_item is-centered`. Used for What We Do and Who We Support.
-- Heading with a line to the right: inside `section_header`, `heading-line_component` > h2 + `heading-line_line`.
+- Heading with a line to the right: inside `section_header`, `heading-line_component` (bottom-aligned) > h2 + `heading-line_line` (1px, Blue/300, sits on the heading's baseline via margin-bottom Spacing/xtiny).
 - Image card with a flush image: `media-card_component` > `photo-strip_image-wrapper` > `photo-strip_image` (the client added the hover zoom on these) + `media-card_content`.
 - Photo banner: `cta-banner_component background-color-primary` > `background-image-wrapper` > `background-image`, `cta-banner_overlay` (Background/overlay-strong), `cta-banner_content` > `padding-global` > `container-large` > ... > `max-width-large align-center` > `team_item`.
 - Tighter section spacing: `padding-section-bottom-small` on a section that follows a white section.
