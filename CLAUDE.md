@@ -82,6 +82,15 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Contact band: `tag-bar_component` with `process_item text-align-center` blocks (`button` + `text-style-link text-size-large`).
 - Use Paragraph (not TextBlock) for short labels built by the API, so `set_text` works in nested builds.
 
+### Managed Studio Services clean-up (reusable classes added)
+
+- Divided columns: `divided-list_component` (overflow hidden) > `divided-list_list` (6 / 3 / 2 / 1 columns, margin-left -1.5rem so the first divider of every row is clipped; hard-coded because a variable cannot be negative, keep it equal to Spacing/small) > `divided-list_item` (left border + side padding). Centred label variant: `divided-list_item is-centered`. Used for What We Do and Who We Support.
+- Heading with a line to the right: inside `section_header`, `heading-line_component` > h2 + `heading-line_line`.
+- Image card with a flush image: `media-card_component` > `photo-strip_image-wrapper` > `photo-strip_image` (the client added the hover zoom on these) + `media-card_content`.
+- Photo banner: `cta-banner_component background-color-primary` > `background-image-wrapper` > `background-image`, `cta-banner_overlay` (Background/overlay-strong), `cta-banner_content` > `padding-global` > `container-large` > ... > `max-width-large align-center` > `team_item`.
+- Tighter section spacing: `padding-section-bottom-small` on a section that follows a white section.
+- The other new pages still use the older `stage-detail_spec-card` cards, `tag-bar_component` and plain headings.
+
 ### Custom Engineering & Fabrication page pattern
 
 - Light hero (H1 wraps to 3 lines at `is-wide` 32rem), then `section_custom` > ... > `custom_component` bands: tinted capabilities band (`grid-autofit-small` of `stage-detail_spec-card` > `team_item` with `photo-strip_image`, h3 `heading-style-h4 text-color-blue`), dark banner (`padding-section-small background-color-primary`, `heading-style-h3 text-color-alternate`), contact (`mobile-contacts_list` of `team_item` blocks with a `footer_divider background-color-primary`).
@@ -105,6 +114,9 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - `set_text` inside a nested builder call is ignored for TextBlock (Heading, Paragraph and TextLink are fine), and `set_text` on the TextBlock fails afterwards: set the text on its String child (same element id with the last hex digit + 1).
 - Collection List: set the source with `set_settings` key `source`, `static_json` `{"collectionId":"..."}`; bind an image with key `assetId`. Setting `sort` fails with a conflict error: ask the client to set the sort in the Designer.
 - `set_link` with a page link inside a nested builder call is not applied (the link stays `#`); url, email and phone links are fine. Set page links afterwards with `set_link`.
+- `calc()` with a variable in a style value is collapsed to the bare variable by the API, and the `sizes` attribute cannot be set on an image.
+- Hero photos on API-built pages publish with a tiny `sizes` value (blurry image): ask the client to open the page in the Designer and republish, or regenerate responsive images.
+- The client's scroll-reveal script hides images again in Playwright full-page screenshots: capture viewport by viewport instead.
 - An element cannot be moved or inserted `after` a component instance: anchor `before` the next normal element instead.
 
 ## Saved recipes
