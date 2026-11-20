@@ -84,7 +84,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 
 ### Managed Studio Services clean-up (reusable classes added)
 
-- Divided columns: `divided-list_component` (overflow hidden) > `divided-list_list` (6 / 3 / 2 / 1 columns, margin-left -1.5rem so the first divider of every row is clipped; hard-coded because a variable cannot be negative, keep it equal to Spacing/small) > `divided-list_item` (left border + side padding). Centred label variant: `divided-list_item is-centered`. Used for What We Do and Who We Support.
+- Divided columns: `divided-list_component` (overflow-x clip, overflow-y visible so items can slide in) > `divided-list_list` (6 columns from 1440px, 3 below, 2 on mobile landscape, 1 on mobile portrait; margin-left -1rem so the first divider of every row is clipped; hard-coded because a variable cannot be negative, keep it equal to the item padding Spacing/xxsmall) > `divided-list_item` (left border + side padding). Centred label variant: `divided-list_item is-centered`. Used for What We Do and Who We Support.
 - Heading with a line to the right: inside `section_header`, `heading-line_component` (bottom-aligned) > h2 + `heading-line_line` (1px, Blue/300, sits on the heading's baseline via margin-bottom Spacing/xtiny).
 - Image card with a flush image: `media-card_component` > `photo-strip_image-wrapper` > `photo-strip_image` (the client added the hover zoom on these) + `media-card_content`.
 - Photo banner: `cta-banner_component background-color-primary` > `background-image-wrapper` > `background-image`, `cta-banner_overlay` (Background/overlay-strong), `cta-banner_content` > `padding-global` > `container-large` > ... > `max-width-large align-center` > `team_item`.
@@ -101,6 +101,12 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Intro cards: `grid-autofit-small` > `stage-detail_spec-card` > `team_item` (`photo-strip_image`, h2 `heading-style-h3 text-color-blue`, p `text-size-regular`, `text-style-link`).
 - Featured Equipment (collection: Name, Brand, Image, Product Link): `product_list-wrapper` > `product_list` (8 / 4 / 2 columns) > `product_item` > `stage-detail_spec-card` > `team_item` (image, h3 `text-size-regular`, p `text-size-small`, `text-style-link` "VIEW PRODUCT").
 - Contact row: `mobile-contacts_list` with `text-style-link text-size-large` links and a `footer_divider background-color-primary`.
+
+## Scroll reveal animation
+
+- Lives in the site custom code (head: setup script with the `PAGES` and `ITEMS` selector lists; footer: observer). JavaScript only, same motion as the `slide-in-bottom` interactions.
+- A new card / block class only animates after its selector is added to `ITEMS` (and a new page's section class to `PAGES`). Read the head code with `get_site_freeform_code`, add the selector, write the whole block back with `set_site_freeform_code`, publish.
+- Currently listed for the new components: `.divided-list_item`, `.media-card_component`, `.max-width-large > .team_item`.
 
 ## Webflow MCP API limits (work-arounds)
 
