@@ -94,7 +94,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 
 ### Custom Engineering & Fabrication page pattern
 
-- Light hero (H1 wraps to 3 lines at `is-wide` 32rem), then `section_custom` > ... > `custom_component` bands: tinted capabilities band (`grid-autofit-small` of `stage-detail_spec-card` > `team_item` with `photo-strip_image`, h3 `heading-style-h4 text-color-blue`), dark banner (`padding-section-small background-color-primary`, `heading-style-h3 text-color-alternate`), contact (`mobile-contacts_list` of `team_item` blocks with a `footer_divider background-color-primary`).
+- Light hero with `stage-hero_content is-xwide` (40rem from Grid Columns/large, 32rem on tablet and below) so the H1 sits on 2 lines; tagline `text-size-medium text-weight-bold text-color-blue`. Then `section_custom` > ... > `custom_component` bands: tinted capabilities band (`grid-autofit-small` of `media-card_component` > `photo-strip_image-wrapper` + `media-card_content`, h3 `heading-style-h4 text-color-blue`), photo banner (`cta-banner_component background-color-primary` with `cta-banner_overlay is-left`: dark on the left, photo on the right; text in `max-width-large` > `team_item` with Hero_accent-line and h2 `heading-style-h2 text-color-alternate`), contact (`mobile-contacts_list` of `team_item` blocks with a `footer_divider background-color-primary`; name `text-size-medium text-weight-bold`). Section h2s use `heading-style-h2 text-color-blue`.
 
 ### Equipment Sales page pattern
 
