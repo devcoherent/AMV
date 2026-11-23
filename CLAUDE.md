@@ -81,7 +81,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Image + text cards: `photo-strip_list` (5 columns) or `home-services_grid` (4 columns) with `stage-detail_spec-card` > `team_item` > `photo-strip_image`.
 - Contact band: `tag-bar_component` with `process_item text-align-center` blocks (`button` + `text-style-link text-size-large`).
 - Use Paragraph (not TextBlock) for short labels built by the API, so `set_text` works in nested builds.
-- Systems Design & Integration contact: the site's `CTA` component (props: Title, Link 1-4, Text 1-4; same as the Mobile page) inside a plain `background-color-brand-subtle` div placed after the last section, so the component itself is not changed. Hero tagline uses `text-size-medium text-weight-bold text-color-blue`.
+- Systems Design & Integration contact: the site's `CTA` component (props: Title, Link 1-4, Text 1-4; same as the Mobile page) inside a plain `background-color-brand-subtle` div placed after the last section, so the component itself is not changed. Hero tagline uses `text-size-medium text-weight-bold text-color-blue`. Section h2 headings on this page use `heading-style-h2 text-color-blue` (client request: an h2 tag takes the h2 style class, not `heading-style-h3`); the other new pages still have `heading-style-h3 text-color-blue` on their h2s.
 
 ### Managed Studio Services clean-up (reusable classes added)
 
