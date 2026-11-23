@@ -23,7 +23,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Do not change the styles of existing classes. Add a new class (layout, spacing, border, background only) or reuse an existing one. Before creating a class, check whether another page already has a class doing the same job and reuse it; never make two classes for the same job.
 - No CSS in custom code. All styling lives in Webflow classes; embeds may hold JavaScript only.
 - Every element gets a Client-First class name (no unnamed divs).
-- Use the existing site components: Spacer (variant prop), Hero_accent-line, buttons (`button is-flex`, `button is-secondary`), CTA, Navbar, Footer.
+- Use the existing site components: Spacer (variant prop), Hero_accent-line, buttons (`button is-flex`, `button is-secondary`), CTA (component id `017ae79b-e738-ceee-1115-eb71b6bc7880`; for a tinted contact band wrap the instance in a `background-color-brand-subtle` div), Navbar, Footer.
 - Give every new CMS field a help text that says where it shows on the page, and put it in the matching field group (listing page group first, then one group per template section / tab).
 - After every change: publish, then verify on the live site (allmobilevideo.webflow.io) with Playwright and screenshots before reporting.
 
@@ -81,6 +81,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Image + text cards: `photo-strip_list` (5 columns) or `home-services_grid` (4 columns) with `stage-detail_spec-card` > `team_item` > `photo-strip_image`.
 - Contact band: `tag-bar_component` with `process_item text-align-center` blocks (`button` + `text-style-link text-size-large`).
 - Use Paragraph (not TextBlock) for short labels built by the API, so `set_text` works in nested builds.
+- Systems Design & Integration contact: the site's `CTA` component (props: Title, Link 1-4, Text 1-4; same as the Mobile page) inside a plain `background-color-brand-subtle` div placed after the last section, so the component itself is not changed. Hero tagline uses `text-size-medium text-weight-bold text-color-blue`.
 
 ### Managed Studio Services clean-up (reusable classes added)
 
