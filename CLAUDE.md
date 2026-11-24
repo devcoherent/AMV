@@ -99,11 +99,12 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 
 ### About AMV page pattern
 
-- Light hero (`stage-hero_content is-wide`), then `section_about` > ... > `about_component` bands.
-- Our Story (white): section header, then `margin-top-xxsmall` > `max-width-large` > RichText `text-rich-text` (set the copy with `set_settings` key `richText`, `static_text.rich_text_inner_text`; a blank line starts a new paragraph). Below it a milestone strip: `margin-top-medium` > `divided-list_component` > `divided-list_list is-5-col` > `divided-list_item` (h3 year `heading-style-h3 text-color-blue`, p `text-size-regular`).
-- What We Do Now (tinted): `grid-autofit-small` of `media-card_component` > `media-card_content` without an image (h3 `heading-style-h4 text-color-blue`, p `text-size-regular`, `text-style-link` to the service page).
-- Closing banner: `cta-banner_component background-color-primary` with `cta-banner_overlay is-left`, text `text-size-large text-color-alternate` (placeholder photo; the mock shows the Chelsea Media Center sign).
-- Scroll reveal: `.section_about` is in `PAGES` and `.max-width-large > .text-rich-text` in `ITEMS`.
+- Hero: the Home page's dark hero, reused: `section_home-hero background-color-primary` > `background-image-wrapper` > `background-image` + `home-hero_overlay`, then `padding-global` > `container-large` > `padding-section-small` > `home-hero_component` (h1 `heading-style-h1 text-color-alternate`, `max-width-30rem` > p `text-size-medium text-color-alternate`). No load animation (the Home one is a Designer interaction).
+- Then `section_about` > `padding-section-small` > `padding-global` > `container-large` > `about_component`, all on white, split by `team_line` dividers at the end of each component.
+- Our Story: section header, `margin-top-xxsmall` > `team_item` of normal Paragraphs `text-size-regular`, full container width (client asked for normal paragraphs, not Rich Text).
+- What We Do Now: `feature-card_list` (2 columns, 1 on tablet and below) of `divided-list_item is-accent` (3px blue left border) > `team_item` (h3 `heading-style-h4 text-color-blue`, p `text-size-regular`). Items are ordered row by row so each column reads like the mock.
+- Closing: `text-align-center` > `max-width-large align-center` > p `text-size-medium text-weight-bold text-color-blue`, then `margin-top-medium` > `about_image` (5 / 1 banner image, 2 / 1 on mobile; placeholder until the Chelsea Media Center photo is uploaded).
+- Scroll reveal: `.section_about` is in `PAGES`.
 
 ### Equipment Sales page pattern
 
