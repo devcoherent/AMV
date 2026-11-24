@@ -62,3 +62,11 @@ The About hero background image is not a reveal item (sliding a full-bleed backg
 its edges). It has its own load animation instead: fade in + slow zoom-out (scale 1.08 to 1, 1.6s),
 as CSS in the About page head code (Page settings > Custom code > Head), keyframes `amv-hero-bg-in`.
 To reuse on another page with a `section_home-hero`, copy that block into the page's head code.
+
+## Footer (added 2026-11-24)
+
+The footer animates on every page, not only the pages in `PAGES`: the head script has a separate
+`FOOTER` list (`.footer_brand` and each child of `.footer_link-list`). Footer items rise 40px
+instead of 100px, and the footer is clipped while the animation is active so it never adds scroll
+below the end of the page. Tested at 1440, 820 and 390px on About, Home, Mobile unit, Equipment
+Sales, Production Spaces and Equipment Rentals.
