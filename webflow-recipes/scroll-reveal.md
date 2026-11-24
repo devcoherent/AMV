@@ -55,3 +55,10 @@ When a page's structure is edited, new blocks may fall outside `ITEMS` and stay 
 - `text-style-link`: colour fades to Link/secondary on hover (300ms).
 - `manufacturer_card`: border colour + shadow on hover (300ms), like the Home service cards.
 - `button`, `footer_link`: 300ms colour transitions.
+
+## About hero background (added 2026-11-24)
+
+The About hero background image is not a reveal item (sliding a full-bleed background would show
+its edges). It has its own load animation instead: fade in + slow zoom-out (scale 1.08 to 1, 1.6s),
+as CSS in the About page head code (Page settings > Custom code > Head), keyframes `amv-hero-bg-in`.
+To reuse on another page with a `section_home-hero`, copy that block into the page's head code.
