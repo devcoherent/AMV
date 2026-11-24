@@ -100,9 +100,9 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 ### About AMV page pattern
 
 - Hero: the Home page's dark hero, reused: `section_home-hero background-color-primary` > `background-image-wrapper` > `background-image` + `home-hero_overlay`, then `padding-global` > `container-large` > `padding-section-small` > `home-hero_component` (h1 `heading-style-h1 text-color-alternate`, `max-width-30rem` > p `text-size-medium text-color-alternate`). No load animation (the Home one is a Designer interaction).
-- Then `section_about` > `padding-section-small` > `padding-global` > `container-large` > `about_component`, all on white. Between sections sits a section divider as its own element (not a border inside a section): `padding-global` > `container-large` > `section-divider` (reusable: 1px, full width, brand blue variable).
+- Then `section_about` > `padding-section-small` > `padding-global` > `container-large` > `about_component`, all on white. Between sections sits a section divider as its own element (not a border inside a section): `padding-global` > `container-large` > `section-divider` (reusable: 1px, full width, light Blue/300 variable; the darker brand blue looked too heavy to the client).
 - Our Story: section header, `margin-top-xxsmall` > `team_item` of normal Paragraphs `text-size-regular`, full container width (client asked for normal paragraphs, not Rich Text).
-- What We Do Now: `feature-card_list` (2 columns, 1 on tablet and below) of `divided-list_item is-accent` (blue left border, 1px like the base class; the client found 3px too thick) > `team_item` (h3 `heading-style-h4 text-color-blue`, p `text-size-regular`). Items are ordered row by row so each column reads like the mock.
+- What We Do Now: `feature-card_list` (2 columns, 1 on tablet and below) of `divided-list_item is-accent` (3px blue left border; the client wants it kept at 3px) > `team_item` (h3 `heading-style-h4 text-color-blue`, p `text-size-regular`). Items are ordered row by row so each column reads like the mock.
 - Closing: `text-align-center` > `max-width-large align-center` > p `text-size-medium text-weight-bold text-color-blue`, then `margin-top-medium` > `about_image` (5 / 1 banner image, 2 / 1 on mobile; placeholder until the Chelsea Media Center photo is uploaded).
 - Scroll reveal: `.section_about` is in `PAGES`.
 
