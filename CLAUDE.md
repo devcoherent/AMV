@@ -43,6 +43,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 | Managed Studio Services (static) | `6afcbe7f2174b0705e4e56f0` | `/managed-studio-services` | |
 | Equipment Sales (static) | `6afcc02c08be3d8ec05172db` | `/sales` | Featured Equipment `6afcc02fb8c4a4eb58b662a0` (collection list) |
 | Custom Engineering & Fabrication (static) | `6afcc2f65d702d810b221380` | `/custom-engineering-fabrication` | |
+| About AMV (static, duplicated from Custom Engineering & Fabrication) | `6b05a058678326aa5353c7ad` | `/about` | |
 | Manufacturers Template (auto-created, unused) | `6afcbbe136b71b9eb773560e` | `/manufacturer/<slug>` | Manufacturers |
 | Style Guide (draft) | `6ae0d69035ac2bac3961b4d1` | `/style-guide` | |
 
@@ -95,6 +96,14 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 ### Custom Engineering & Fabrication page pattern
 
 - Light hero with `stage-hero_content is-xwide` (40rem from Grid Columns/large, 32rem on tablet and below) so the H1 sits on 2 lines; tagline `text-size-medium text-weight-bold text-color-blue`. Then `section_custom` > ... > `custom_component` bands: tinted capabilities band (`grid-autofit-small` of `media-card_component` > `photo-strip_image-wrapper` + `media-card_content`, h3 `heading-style-h4 text-color-blue`), photo banner (`cta-banner_component background-color-primary` with `cta-banner_overlay is-left`: dark on the left, photo on the right; text in `max-width-large` > `team_item` with Hero_accent-line and h2 `heading-style-h2 text-color-alternate`), contact on a `padding-section-small background-color-brand-subtle` band: `contact-split_component` (the client's grid, 1fr 1px 1fr, vertically centred, 1 column on mobile) > `team_item align-center` (name `text-size-medium text-weight-bold`, address, phone, email) + `footer_divider is-100%` + `process_item text-align-center` (company name until the Bogota Fab Works logo is uploaded, then `display-inline-flex gap-small align-center` row with the website link and an `icon-1x1-small text-color-blue` external-link svg). Section h2s use `heading-style-h2 text-color-blue`.
+
+### About AMV page pattern
+
+- Light hero (`stage-hero_content is-wide`), then `section_about` > ... > `about_component` bands.
+- Our Story (white): section header, then `margin-top-xxsmall` > `max-width-large` > RichText `text-rich-text` (set the copy with `set_settings` key `richText`, `static_text.rich_text_inner_text`; a blank line starts a new paragraph). Below it a milestone strip: `margin-top-medium` > `divided-list_component` > `divided-list_list is-5-col` > `divided-list_item` (h3 year `heading-style-h3 text-color-blue`, p `text-size-regular`).
+- What We Do Now (tinted): `grid-autofit-small` of `media-card_component` > `media-card_content` without an image (h3 `heading-style-h4 text-color-blue`, p `text-size-regular`, `text-style-link` to the service page).
+- Closing banner: `cta-banner_component background-color-primary` with `cta-banner_overlay is-left`, text `text-size-large text-color-alternate` (placeholder photo; the mock shows the Chelsea Media Center sign).
+- Scroll reveal: `.section_about` is in `PAGES` and `.max-width-large > .text-rich-text` in `ITEMS`.
 
 ### Equipment Sales page pattern
 
