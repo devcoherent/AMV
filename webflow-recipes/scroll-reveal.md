@@ -17,9 +17,9 @@ The current code lives in the site custom code; read it from there before editin
 ## Pages using it
 
 Transmission Delivery, Authorized Distributor, Systems Design & Integration,
-Managed Studio Services, Equipment Sales, Custom Engineering & Fabrication.
+Managed Studio Services, Equipment Sales, Custom Engineering & Fabrication, About AMV.
 A page is matched by its section class (`.section_transmission`, `.section_distributor`,
-`.section_systems`, `.section_managed`, `.section_sales`, `.section_custom`).
+`.section_systems`, `.section_managed`, `.section_sales`, `.section_custom`, `.section_about`).
 
 Home, Mobile, Equipment Rentals and the two template pages (Mobile Units, Studios) still use the
 legacy `slide-in-*` classes. Production Spaces (`/stage`) has no scroll animation yet.
@@ -33,6 +33,12 @@ legacy `slide-in-*` classes. Production Spaces (`/stage`) has no scroll animatio
   the hero has `overflow: hidden`, which clips shifted items so they are never detected.
 - "Reduce motion" visitors, browsers without `:has()` and a failed script all end with the content
   simply visible (there is a 5s safety timer).
+
+## Checking a page after it changes
+
+When a page's structure is edited, new blocks may fall outside `ITEMS` and stay un-animated
+(this happened to the Custom Engineering contact block, fixed 2026-11-24 by adding
+`.contact-split_component`). Compare the page's blocks against `ITEMS` and add the missing selector.
 
 ## To change it
 
