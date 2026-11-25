@@ -36,7 +36,7 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 | Mobile Units Template (finished, do not touch) | `6ae50a6ca43174bb93995e25` | `/mobile/<slug>` | Mobile Units `6ae50a6ca43174bb93995e1f` |
 | Production Spaces (studios listing) | `6af377896c7676999e8ec1dd` | `/stage` | |
 | Studios Template | `6af379570dad849b03220882` | `/stage/<slug>` | Studios `6af379560dad849b0322087c` |
-| Equipment Rentals | `6af3729fc0f4d4b03ff06a7b` | `/rental` | |
+| Equipment Rentals (static, rebuilt from an empty page) | `6af3729fc0f4d4b03ff06a7b` | `/rental` | |
 | Transmission Delivery (static, duplicated from Production Spaces) | `6afc7ebfd4ebac5a3c7845c4` | `/transmission-delivery` | |
 | Authorized Distributor (static, duplicated from Transmission Delivery) | `6afcbbd32629c9ec552c7162` | `/authorized-distributor` | Manufacturers `6afcbbe136b71b9eb7735608` (collection list) |
 | Systems Design & Integration (static) | `6afcbd89e5e28fd37f0c6d0f` | `/systems-design-integration` | |
@@ -105,6 +105,16 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - What We Do Now: `feature-card_list` (2 columns, 1 on tablet and below) of `divided-list_item is-accent` (3px blue left border; the client wants it kept at 3px) > `team_item` (h3 `heading-style-h4 text-color-blue`, p `text-size-regular`). Items are ordered row by row so each column reads like the mock.
 - Closing: `text-align-center` > `max-width-large align-center` > p `text-size-medium text-weight-bold text-color-blue`, then `margin-top-medium` > `about_image` (5 / 1 banner image, 2 / 1 on mobile; placeholder until the Chelsea Media Center photo is uploaded).
 - Scroll reveal: `.section_about` is in `PAGES`.
+
+### Equipment Rentals page pattern
+
+- The client emptied the page, so it was built from the Body: `page-wrapper` > Global / Styles (`709063bf-aea1-1613-5cbe-999d793afe35`), Navbar_component (`ec6e4d25-0e0f-3d8d-f3f4-879144d9109a`), `main-wrapper` (tag main, set with `set_tag`), Footer (`073744b2-5e15-b9c7-da10-825eb139afa6`). Use the same recipe for any other empty page.
+- Light hero (`stage-hero_content is-wide`): Hero_accent-line, Spacer 16, eyebrow p `text-size-medium text-weight-bold text-color-blue`, Spacer 8, h1, Spacer 8, p `text-size-medium`.
+- Then `section_rental` > `padding-section-small` > `padding-global` > `container-large` > `rental_component`.
+- Categories (white): `grid-autofit-small` of `media-card_component` > `photo-strip_image-wrapper` > `photo-strip_image` + `media-card_content` (h2 `heading-style-h3 text-color-blue`, `text-style-link` "VIEW DETAILS →", link `#` until detail pages exist).
+- Rental Forms & Documents (tinted band): section header, `margin-top-medium` > `home-services_grid is-tablet-2col` (combo: 4 columns on desktop, 2 on tablet and mobile landscape, 1 on mobile portrait; the combo needs its own tiny rule because its tablet rule outranks the base class) of `stage-detail_spec-card` > `spec-sheet_download-content` > `text-color-blue` div > svg `icon-1x1-large` (the wrapper div stops the icon shrinking) + `team_item` (h3 `heading-style-h4`, p `text-size-regular`, `text-style-link` "VIEW & DOWNLOAD →", link `#` until the files are uploaded).
+- Rental Contacts: the `CTA` component appended to `main-wrapper` (Title "RENTAL CONTACTS", East Coast 212-727-1234, West Coast 818-827-0922).
+- Scroll reveal: `.section_rental` is in `PAGES`.
 
 ### Equipment Sales page pattern
 
