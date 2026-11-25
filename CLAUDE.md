@@ -112,9 +112,9 @@ Webflow site "style guide v2" (site id `6ae0d68e35ac2bac3961b43e`), built with C
 - Light hero (`stage-hero_content is-wide`): Hero_accent-line, Spacer 16, eyebrow p `text-size-medium text-weight-bold text-color-blue`, Spacer 8, h1, Spacer 8, p `text-size-medium`.
 - Then `section_rental` > `padding-section-small` > `padding-global` > `container-large` > `rental_component`.
 - Categories (white): `grid-autofit-small` of `media-card_component` > `photo-strip_image-wrapper` > `photo-strip_image` + `media-card_content` (h2 `heading-style-h3 text-color-blue`, `text-style-link` "VIEW DETAILS →", link `#` until detail pages exist).
-- Rental Forms & Documents (tinted band): section header, `margin-top-medium` > `home-services_grid is-tablet-2col` (combo: 4 columns on desktop, 2 on tablet and mobile landscape, 1 on mobile portrait; the combo needs its own tiny rule because its tablet rule outranks the base class) of `stage-detail_spec-card` > `spec-sheet_download-content` > `text-color-blue` div > svg `icon-1x1-large` (the wrapper div stops the icon shrinking) + `team_item` (h3 `heading-style-h4`, p `text-size-regular`, `text-style-link` "VIEW & DOWNLOAD →", link `#` until the files are uploaded).
+- Rental Forms & Documents (tinted band): section header, `margin-top-medium` > `home-services_grid is-tablet-2col` (combo: 4 columns on desktop, 2 on tablet and mobile landscape, 1 on mobile portrait; the combo needs its own tiny rule because its tablet rule outranks the base class) of `doc-card_component` (reusable stacked card: flex column, full height, border, white) > `doc-card_icon text-color-blue` > svg `icon-1x1-large`, h3 `heading-style-h4`, p `text-size-regular`, `doc-card_footer` (margin-top auto, so the link sits at the bottom of every card) > `text-style-link` "VIEW & DOWNLOAD →" (link `#` until the files are uploaded). The client asked for the icon on top and the link at the bottom.
 - Rental Contacts: the `CTA` component appended to `main-wrapper` (Title "RENTAL CONTACTS", East Coast 212-727-1234, West Coast 818-827-0922).
-- Scroll reveal: `.section_rental` is in `PAGES`.
+- Scroll reveal: `.section_rental` is in `PAGES`, `.doc-card_component` in `ITEMS`.
 
 ### Equipment Sales page pattern
 
